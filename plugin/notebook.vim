@@ -200,7 +200,7 @@ else
   call NB_InitNotebook('default')
 endif
 if has("autocmd")
-    autocmd BufEnter               *.nb set filetype=vo_base
+    autocmd BufEnter               *.nb set filetype=yaml
     autocmd WinLeave              *.nb :call NB_Window_Leave()
 endif
 function! NB_GetNotebooksList()
@@ -765,7 +765,7 @@ function! NB_GoToMark ()
     " first move the cursor at the begin of the path
     exec "normal! \/Reference: \<cr>"
     exec "normal! ".len("Reference: ")."l"
-    exec ":set filetype=c"
+    ""exec ":set filetype=c"
     ""exec ":set foldmethod=indent"
     let line = getline(".")
     let loc = strpart( line, match( line, "Reference: ") + len( "Reference: ") ) 
@@ -1152,7 +1152,7 @@ function! NB_Window_Open_Notebook(notebook)
   endif
   exec ":tabnew ".file
   set modifiable
-  set filetype=c
+  """set filetype=c
   exec ":set nospell"
   ""exec ":set filetype=vo_base"
   redraw!

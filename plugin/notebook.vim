@@ -69,10 +69,12 @@ function! NB_PrintRoot()
     endif
 endfunction
 function! NB_GetRootPath(dir)
-    return substitute( a:dir, s:nb_root, "$".s:nb_root_hook, "")
+    return a:dir
+    "return substitute( a:dir, s:nb_root, "$".s:nb_root_hook, "")
 endfunction
 function! NB_GetFullPath(dir)
-    return substitute( a:dir,  "$".s:nb_root_hook, s:nb_root, "")
+    return a:dir
+    "return substitute( a:dir,  "$".s:nb_root_hook, s:nb_root, "")
 endfunction
 
 call NB_FindRoot(expand(getcwd(),":p"))
